@@ -1,0 +1,25 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: $primary;
+}
+
+.title {
+  &--main {
+    color: $basic;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    @include tablet-range {
+      font-size: 52px;
+    }
+
+    @include desktop-range {
+      font-size: 72px;
+      line-height: 86px;
+    }
+  }
+}

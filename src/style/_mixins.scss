@@ -1,0 +1,18 @@
+// breakpoints
+@mixin phone-range {
+	@media screen and (min-width: 360px) {
+	 @content;
+	}
+}
+
+@mixin tablet-range {
+	@media screen and (min-width: 768px) {
+	 @content;
+	}
+}
+
+@mixin desktop-range {
+	@media screen and (min-width: 1440px) {
+	 @content;
+	}
+}
