@@ -1,0 +1,87 @@
+.tech {
+  padding-bottom: 130px;
+  background: $basic;
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 43px;
+
+    @include tablet-range {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    @include desktop-range {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+      margin-top: 55px;
+    }
+  }
+
+  &-item {
+    width: 255px;
+    text-align: center;
+
+    &:not(:last-of-type) {
+      margin-bottom: 30px;
+
+      @include desktop-range {
+        margin-bottom: 0;
+      }
+    }
+
+    &_img-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 120px;
+      margin: 0 69px 16px;
+    }
+  }
+
+  &-img {
+    position: relative;
+
+    &--icon {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom: -8px;
+      height: 65px;
+      width: 65px;
+    }
+
+    &--cloud {
+      bottom: -16px;
+      height: 80px;
+      width: 80px;
+    }
+
+    &--pdf {
+      height: 69px;
+      width: 69px;
+    }
+
+    &--csv {
+      bottom: -2px;
+      height: 55px;
+      width: 55px;
+    }
+
+    &--bg {
+      width: 110px;
+      height: auto;
+    }
+  }
+
+  &_descript {
+    line-height: 14px;
+    margin: 10px 32px 0 32px;
+  }
+}
