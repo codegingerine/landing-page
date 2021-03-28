@@ -1,0 +1,104 @@
+.features {
+  padding-bottom: 124px;
+  background: $bg-light;
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 43px;
+
+    @include desktop-range {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+      margin-top: 63px;
+    }
+  }
+}
+
+.feature {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 250px;
+  width: 320px;
+
+  @include tablet-range {
+    width: 600px;
+  }
+
+  @include desktop-range {
+    align-items: stretch;
+    width: 350px;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 50px;
+
+    @include tablet-range {
+      margin-bottom: 60px;
+    }
+
+    @include desktop-range {
+      margin-bottom: 0;
+    }
+  }
+
+  &_img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 8px;
+
+    @include tablet-range {
+      margin: auto 0;
+    }
+
+    @include desktop-range {
+      margin: 0;
+    }
+  }
+
+  &_content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 157px 29px 0 28px;
+    background: $basic;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 33px 32px 25px;
+    text-align: center;
+    z-index: 1;
+
+    @include tablet-range {
+      margin: 0 0 0 260px;
+      text-align: left;
+    }
+
+    @include desktop-range {
+      margin: 157px 29px 0 28px;
+      text-align: center;
+    }
+  }
+
+  &_desrcipt {
+    margin: 20px 0 18px;
+  }
+
+  &_link {
+    @include tablet-range {
+      text-align: right;
+    }
+
+    @include desktop-range {
+      text-align: center;
+      margin-top: auto;
+    }
+  }
+}

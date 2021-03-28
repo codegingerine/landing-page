@@ -10,3 +10,4 @@ $ npm install
 $ npm start
 ```
 ### preview
+[codegingerine.github.io/landing-page](https://codegingerine.github.io/landing-page)

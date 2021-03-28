@@ -3,7 +3,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: { index: path.resolve(__dirname, "index.js") },
+  entry: { index: path.resolve(__dirname, "src", "index.js") },
   output: {
     path: path.resolve(__dirname, "docs"),
     filename: "main.js",
@@ -35,8 +35,17 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|jpg|woff|woff2|eot|ttf)$/,
-        loader: "url-loader",
+        test: /\.(png|svg|jpg)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "images/",
+              publicPath: "images/",
+            },
+          },
+        ],
       },
       {
         test: /\.html$/,
@@ -56,7 +65,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./public/index.html" })],
+  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
   performance: {
     hints: false,
   },

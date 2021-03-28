@@ -1,0 +1,76 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: $primary;
+}
+
+.title {
+  &--main {
+    color: $basic;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    @include tablet-range {
+      font-size: 52px;
+    }
+
+    @include desktop-range {
+      font-size: 72px;
+      line-height: 86px;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 767px;
+  padding: 0 15px;
+
+  @include tablet-range {
+    max-width: 768px;
+  }
+
+  @include desktop-range {
+    max-width: 1140px;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 63px 0 0;
+
+  &_title {
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  &_subtitle {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    color: $text;
+  }
+
+  &_descript {
+    font-size: 12px;
+    line-height: 18px;
+    color: #101010;
+  }
+}
+
+.link {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  color: $link;
+}
