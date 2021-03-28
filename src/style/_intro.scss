@@ -31,7 +31,7 @@
     z-index: -1;
   }
 
-  &-body {
+  &_body {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@
     z-index: 2;
   }
 
-  &-text {
+  &_text {
     max-width: 320px;
     color: $basic;
     font-size: 18px;
