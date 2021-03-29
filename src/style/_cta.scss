@@ -69,16 +69,21 @@
       justify-content: flex-start;
     }
   }
+}
 
-  &-icon {
+
+.cta-link {
+  display: block;
+
+  &:not(:last-child) {
+    margin-right: 25px;
+  }
+
+  &:last-child {
+    height: 24px;
+  }
+
+  &_icon {
     height: 28px;
-
-    &:not(:last-child) {
-      margin-right: 25px;
-    }
-
-    &:last-child {
-      height: 24px;
-    }
   }
 }
