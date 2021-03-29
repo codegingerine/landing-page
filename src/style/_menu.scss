@@ -53,11 +53,11 @@
     transition: text-shadow 0.3s;
 
     &:hover {
-      text-shadow: 0.7px 0 0 $basic;
+      text-shadow: 0.8px 0 0 $basic;
     }
 
     &.active {
-      text-shadow: 0.7px 0 0 $basic;
+      text-shadow: 0.8px 0 0 $basic;
     }
   }
 }
