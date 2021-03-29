@@ -1,0 +1,13 @@
+@keyframes maxHeight {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: calc(100vh - 70px);
+  }
+}
+
+@keyframes opacity {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}

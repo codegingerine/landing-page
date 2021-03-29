@@ -3,8 +3,11 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 59px 0 0;
-  z-index: 999;
+  margin: 30px 0 0;
+
+  @include tablet-range {
+    margin: 59px 0 0;
+  }
 
   &_holder {
     display: flex;
@@ -15,10 +18,37 @@
   &_brand {
     display: flex;
     align-items: center;
+    z-index: 10;
   }
 
   &_links {
-    display: flex;
+    position: absolute;
+    max-height: 0;
+    top: 40px;
+    overflow: hidden;
+    z-index: 999;
+
+    @include tablet-range {
+      position: relative;
+      display: flex;
+      max-height: none;
+      top: 0;
+    }
+
+    &.open {
+      @include mobile-only {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        right: 0;
+        left: 0;
+        max-height: calc(100vh - 70px);
+        background: $basic;
+        padding: 15px;
+        animation: maxHeight .3s linear;
+        overflow-y: auto;
+      }
+    }
   }
 }
 
@@ -27,16 +57,26 @@
 
   &_name {
     display: block;
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 16px;
+    line-height: 16px;
     font-weight: 700;
     color: $basic;
     text-transform: uppercase;
     margin-left: 10px;
+
+    @include tablet-range {
+      font-size: 18px;
+      line-height: 18px;
+    }
   }
 
   &_logo {
+    position: relative;
     display: block;
+    width: 20px;
+    @include tablet-range {
+      width: 26px;
+    }
   }
 }
 
@@ -56,8 +96,56 @@
       text-shadow: 0.8px 0 0 $basic;
     }
 
-    &.active {
-      text-shadow: 0.8px 0 0 $basic;
+    &.open {
+      @include mobile-only {
+        color: $text;
+        padding: 10px 0;
+
+        &:hover {
+          text-shadow: 0.8px 0 0 $text;
+        }
+      }
+    }
+  }
+}
+
+.menu-toggler {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: $basic;
+  border-radius: 4px;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 999;
+
+  @include tablet-range {
+    display: none;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:not(.open) {
+    &:before {
+      background: url("../assets/svg/toggle.svg") no-repeat;
+      background-size: 18px auto;
+      background-position: center;
+    }
+  }
+
+  &.open {
+    &:before {
+      background: url("../assets/svg/close.svg") no-repeat;
+      background-size: 14px auto;
+      background-position: center;
     }
   }
 }

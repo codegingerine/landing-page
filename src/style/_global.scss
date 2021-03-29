@@ -4,6 +4,10 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: $primary;
+
+  &.open {
+    overflow: hidden;
+  }
 }
 
 .title {
@@ -79,4 +83,22 @@ body {
   line-height: 18px;
   text-align: center;
   color: $link;
+}
+
+.backdrop {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+
+  &.open {
+    @include mobile-only {
+      display: block;
+      animation: opacity .3s ease;
+    }
+  }
 }
