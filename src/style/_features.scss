@@ -1,5 +1,5 @@
 .features {
-  padding-bottom: 124px;
+  min-height: 660px;
   background: $bg-light;
 
   &_content {
@@ -7,13 +7,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 43px;
+    margin-top: 30px;
 
     @include desktop-range {
       flex-direction: row;
       justify-content: space-between;
       align-items: stretch;
-      margin-top: 63px;
+      margin: 62px 0;
     }
   }
 }

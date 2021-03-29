@@ -1,5 +1,5 @@
 .tech {
-  padding-bottom: 130px;
+  min-height: 500px;
   background: $basic;
 
   &_content {
@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 43px;
+    margin-top: 30px;
 
     @include tablet-range {
       flex-direction: row;
@@ -19,7 +19,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: stretch;
-      margin-top: 55px;
+      margin: 55px 0 68px;
     }
   }
 
