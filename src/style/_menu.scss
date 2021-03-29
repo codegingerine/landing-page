@@ -1,0 +1,63 @@
+.menu {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 59px 0 0;
+  z-index: 999;
+
+  &_holder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &_brand {
+    display: flex;
+    align-items: center;
+  }
+
+  &_links {
+    display: flex;
+  }
+}
+
+.brand {
+  display: block;
+
+  &_name {
+    display: block;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 700;
+    color: $basic;
+    text-transform: uppercase;
+    margin-left: 10px;
+  }
+
+  &_logo {
+    display: block;
+  }
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+
+  &_link {
+    color: $basic;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    transition: text-shadow 0.3s;
+
+    &:hover {
+      text-shadow: 0.7px 0 0 $basic;
+    }
+
+    &.active {
+      text-shadow: 0.7px 0 0 $basic;
+    }
+  }
+}
