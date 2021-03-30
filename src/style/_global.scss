@@ -54,6 +54,7 @@ body {
 
   @include desktop-range {
     padding: 63px 0;
+    min-height: 500px;
   }
 
   &_title {
@@ -98,7 +99,33 @@ body {
   &.open {
     @include mobile-only {
       display: block;
-      animation: opacity .3s ease;
+      animation: opacity 0.3s ease;
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  background: #ed4c5c;
+  border: 1.5px solid #ed4c5c;
+  border-radius: 6px;
+  padding: 13px 30px;
+
+  @include desktop-range {
+    padding: 17px 34px;
+  }
+
+  &_text {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 15px;
+    color: $basic;
+    text-transform: uppercase;
+
+    @include desktop-range {
+      font-size: 14px;
+      line-height: 17px;
     }
   }
 }

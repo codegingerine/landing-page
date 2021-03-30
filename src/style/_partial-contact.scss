@@ -1,0 +1,116 @@
+.contact {
+  &_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+
+    @include desktop-range {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 53px 0;
+    }
+  }
+
+  &_info {
+    max-width: 445px;
+    margin-bottom: 30px;
+
+    @include desktop-range {
+      padding-left: 10px;
+      margin-bottom: 0;
+    }
+  }
+
+  &_title {
+    @include desktop-range {
+      text-align: left;
+    }
+  }
+
+  &_desrcipt {
+    color: $primary;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 30px;
+    text-align: center;
+
+    @include desktop-range {
+      margin-top: 53px;
+      text-align: justify;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 540px;
+
+  &_group {
+    display: flex;
+    justify-content: space-between;
+
+    .form_item {
+      width: calc(50% - 15px);
+    }
+  }
+
+  &_item {
+    width: 100%;
+    margin-bottom: 22px;
+  }
+
+  &_item-input {
+    width: 100%;
+    font-family: "Lato", sans-serif;
+    font-size: 12px;
+    line-height: 12px;
+    color: $text-light;
+    text-transform: capitalize;
+    padding: 12px 24px;
+    border: 1px solid $border;
+    border-radius: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include desktop-range {
+      font-size: 16px;
+      line-height: 16px;
+      padding: 20px 31px;
+    }
+  }
+
+  &_item-select {
+    width: 100%;
+    font-family: "Lato", sans-serif;
+    font-size: 12px;
+    line-height: 12px;
+    color: $text-light;
+    text-transform: capitalize;
+    padding: 12px 24px;
+    border: 1px solid $border;
+    border-radius: 6px;
+    appearance: none;
+    background: transparent url("../assets/svg/chevron.svg") no-repeat;
+    background-position: right 26px top 50%;
+    background-size: 14px 14px;
+
+    @include desktop-range {
+      font-size: 16px;
+      line-height: 16px;
+      padding: 20px 31px;
+    }
+  }
+
+  &_item-btn {
+    margin: 0 auto;
+
+    @include desktop-range {
+      margin: 3px auto 0 0;
+    }
+  }
+}

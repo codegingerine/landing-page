@@ -1,6 +1,9 @@
 .features {
-  min-height: 660px;
   background: $bg-light;
+
+  @include desktop-range {
+    min-height: 660px;
+  }
 
   &_content {
     display: flex;

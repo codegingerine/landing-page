@@ -1,3 +1,59 @@
-<section class="contact">
-  <p>contact</p>
+<section id="contact" class="contact section">
+  <div class="container">
+    <div class="contact_content">
+      <div class="contact_info">
+        <h2 class="contact_title section_title">Contact</h2>
+        <p class="contact_desrcipt">
+          Questions or concerns? Just fill out the form below and our support
+          team will get back to you within 24 hours
+        </p>
+      </div>
+
+      <form class="form">
+        <div class="form_group">
+          <div class="form_item">
+            <input
+              class="form_item-input"
+              type="text"
+              name="first-name"
+              value=""
+              placeholder="First name"
+            />
+          </div>
+
+          <div class="form_item">
+            <input
+              class="form_item-input"
+              type="text"
+              name="last-name"
+              value=""
+              placeholder="Last name"
+            />
+          </div>
+        </div>
+
+        <div class="form_item">
+          <input
+            class="form_item-input"
+            type="tel"
+            name="phone"
+            value=""
+            placeholder="Phone number"
+          />
+        </div>
+
+        <div class="form_item">
+          <select name="services" class="form_item-select">
+            <option class="form_item-option" value="" disabled selected>Select service</option>
+            <option class="form_item-option" value="service 1">service 1</option>
+            <option class="form_item-option" value="service 2">service 2</option>
+          </select>
+        </div>
+
+        <button class="btn form_item-btn" type="submit">
+          <span class="btn_text">Submit now</span>
+        </button>
+      </form>
+    </div>
+  </div>
 </section>

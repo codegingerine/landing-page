@@ -1,5 +1,4 @@
 .cta {
-  min-height: 500px;
   background: $bg-special;
 
   &_content {
@@ -15,7 +14,7 @@
   }
 
   &_info {
-    max-width: 435px;
+    max-width: 445px;
   }
 
   &_title {
@@ -34,7 +33,7 @@
     text-align: center;
 
     @include desktop-range {
-      text-align: left;
+      text-align: justify;
     }
   }
 
