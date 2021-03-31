@@ -93,7 +93,7 @@ new window.JustValidate(".js-form", {
   colorWrong: "#D52047",
   focusWrongField: true,
 
-  submitHandler: function (values) {
+  submitHandler: function (form, values) {
     console.log("Form values to submit: ", values)
   },
 });
