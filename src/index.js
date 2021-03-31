@@ -35,6 +35,25 @@ closeItemsArr.forEach((link) => {
   link.addEventListener("click", closeMobileMenu);
 });
 
+// log form values to be submitted
+/*
+const firstNameEl = document.querySelector('[name="first-name"]');
+const lastNameEl = document.querySelector('[name="last-name"]');
+const phoneEl = document.querySelector('[name="phone"]');
+const selectEl = document.querySelector(".form_item-select");
+const submitEl = document.querySelector("#btn-submit");
+
+submitEl.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log("Form values to submit: ", {
+    "first name": firstNameEl.value,
+    "last name": lastNameEl.value, 
+    "phone": phoneEl.value, 
+    "service": selectEl.value, 
+  });
+});
+*/
+
 // just-validate lib -- contact form validation
 new window.JustValidate(".js-form", {
   rules: {
@@ -73,4 +92,8 @@ new window.JustValidate(".js-form", {
 
   colorWrong: "#D52047",
   focusWrongField: true,
+
+  submitHandler: function (values) {
+    console.log("Form values to submit: ", values)
+  },
 });
