@@ -9,13 +9,14 @@
         </p>
       </div>
 
-      <form class="form">
+      <form class="form js-form">
         <div class="form_group">
           <div class="form_item">
             <input
               class="form_item-input"
               type="text"
               name="first-name"
+              data-validate-field="firstName"
               value=""
               placeholder="First name"
             />
@@ -26,6 +27,7 @@
               class="form_item-input"
               type="text"
               name="last-name"
+              data-validate-field="lastName"
               value=""
               placeholder="Last name"
             />
@@ -37,16 +39,27 @@
             class="form_item-input"
             type="tel"
             name="phone"
+            data-validate-field="phone"
             value=""
             placeholder="Phone number"
           />
         </div>
 
         <div class="form_item">
-          <select name="services" class="form_item-select">
-            <option class="form_item-option" value="" disabled selected>Select service</option>
-            <option class="form_item-option" value="service 1">service 1</option>
-            <option class="form_item-option" value="service 2">service 2</option>
+          <select
+            name="services"
+            class="form_item-select"
+            data-validate-field="select"
+          >
+            <option class="form_item-option" value="" disabled selected>
+              Select service
+            </option>
+            <option class="form_item-option" value="service 1">
+              service 1
+            </option>
+            <option class="form_item-option" value="service 2">
+              service 2
+            </option>
           </select>
         </div>
 
