@@ -83,29 +83,14 @@
       line-height: 16px;
       padding: 20px 31px;
     }
+
+    &::placeholder {
+      color: $text-light;
+    }
   }
 
   &_item-select {
     width: 100%;
-    font-family: "Lato", sans-serif;
-    font-size: 12px;
-    line-height: 12px;
-    color: $text-light;
-    text-transform: capitalize;
-    padding: 12px 24px;
-    border: 1px solid $border;
-    border-radius: 6px;
-    appearance: none;
-    background: transparent url("../assets/svg/chevron.svg") no-repeat;
-    background-position: right 26px top 50%;
-    background-size: 14px 14px;
-    outline: none;
-
-    @include desktop-range {
-      font-size: 16px;
-      line-height: 16px;
-      padding: 20px 31px;
-    }
   }
 
   &_item-btn {

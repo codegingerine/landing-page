@@ -1,0 +1,98 @@
+.select2 {
+  max-width: 100%;
+  max-width: 100%;
+}
+
+.select2-container .select2-selection--single {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 41px;
+
+  @include desktop-range {
+    height: 61px;
+  }
+}
+
+.select2-container--default .select2-selection--single {
+  border-color: $border;
+  border-radius: 6px;
+}
+
+.select2-container .select2-selection--single {
+  outline: none;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  font-size: 12px;
+  line-height: 12px;
+  color: $text-light;
+  text-transform: capitalize;
+  padding: 12px 24px;
+
+  @include desktop-range {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 20px 31px;
+  }
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  top: 50%;
+  right: 26px;
+  width: 14px;
+  height: 14px;
+  transform: translateY(-50%);
+  background: transparent url("../assets/svg/chevron.svg") no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow
+  b {
+  display: none;
+}
+
+.select2-container--default[dir="rtl"]
+  .select2-selection--single
+  .select2-selection__arrow {
+  left: 26px;
+  right: auto;
+}
+
+.select2-container--default.select2-container--open
+  .select2-selection--single
+  .select2-selection__arrow {
+  top: calc(50% - 7px);
+  transform: rotate(180deg);
+}
+
+.select2-dropdown {
+  border-color: $border;
+  border-radius: 6px;
+}
+
+.select2-container--default .select2-results__option {
+  padding: 6px 24px;
+
+  @include desktop-range {
+    padding: 6px 31px;
+  }
+}
+
+.select2-results__option {
+  font-size: 12px;
+  line-height: 12px;
+  color: $text-light;
+  text-transform: capitalize;
+
+  @include desktop-range {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}

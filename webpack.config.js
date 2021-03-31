@@ -41,7 +41,11 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: ["style-loader", "css-loader", "sass-loader", "postcss-loader"],
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader", "sass-loader", "postcss-loader"],
       },
       {
         test: /\.(png|svg|jpg)$/i,
@@ -74,7 +78,10 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+  plugins: [
+    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    require("autoprefixer"),
+  ],
   performance: {
     hints: false,
   },
