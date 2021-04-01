@@ -9,17 +9,17 @@
         </p>
       </div>
 
-      <form class="form js-form">
+      <form class="form js-form" autocomplete="off">
         <div class="form_group">
           <div class="form_item">
             <input
               class="form_item-input"
               type="text"
               name="first-name"
-              data-validate-field="firstName"
               value=""
               placeholder="First name"
             />
+            <div class="message"></div>
           </div>
 
           <div class="form_item">
@@ -27,10 +27,10 @@
               class="form_item-input"
               type="text"
               name="last-name"
-              data-validate-field="lastName"
               value=""
               placeholder="Last name"
             />
+            <div class="message"></div>
           </div>
         </div>
 
@@ -39,18 +39,14 @@
             class="form_item-input"
             type="tel"
             name="phone"
-            data-validate-field="phone"
             value=""
             placeholder="Phone number"
           />
+          <div class="message"></div>
         </div>
 
         <div class="form_item">
-          <select
-            name="services"
-            class="form_item-select js-select"
-            data-validate-field="select"
-          >
+          <select name="services" class="form_item-select js-select">
             <option class="form_item-option" value="" disabled selected>
               Select service
             </option>
@@ -61,6 +57,7 @@
               service 2
             </option>
           </select>
+          <div class="message"></div>
         </div>
         <button id="btn-submit" class="btn form_item-btn" type="submit">
           <span class="btn_text">Submit now</span>

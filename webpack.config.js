@@ -18,15 +18,6 @@ module.exports = {
     poll: 2000,
     ignored: "**/node_modules",
   },
-  resolve: {
-    alias: {
-      "just-validate": path.resolve(
-        __dirname,
-        "node_modules",
-        "just-validate/dist/js/just-validate.min.js"
-      ),
-    },
-  },
   module: {
     rules: [
       {

@@ -32,6 +32,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "just-validate": "^1.5.0"
+    "underscore": "^1.12.1",
+    "validate.js": "^0.13.1"
   }
 }
