@@ -24,16 +24,21 @@ const closeMobileMenu = () => {
   );
 };
 
-// menu events
-menuSrollLinks.forEach((link) => {
-  link.addEventListener("click", scrollToAnchor);
-});
+const handleMenuSrollLinks = () =>
+  menuSrollLinks.forEach((link) => {
+    link.addEventListener("click", scrollToAnchor);
+  });
+handleMenuSrollLinks();
 
-menuToggler.addEventListener("click", toggleMobileMenu);
+const handleMenuToggler = () =>
+  menuToggler.addEventListener("click", toggleMobileMenu);
+handleMenuToggler();
 
-closeItemsArr.forEach((link) => {
-  link.addEventListener("click", closeMobileMenu);
-});
+const handleCloseMobileMenu = () =>
+  closeItemsArr.forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+handleCloseMobileMenu();
 
 // form validation with validate.js
 (function () {
