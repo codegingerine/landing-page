@@ -51,15 +51,25 @@
 
   &_group {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+
+    @include tablet-range {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
 
     .form_item {
-      width: calc(50% - 15px);
+      @include tablet-range {
+        width: calc(50% - 15px);
+      }
     }
   }
 
   &_item {
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     margin-bottom: 22px;
   }
@@ -102,19 +112,18 @@
   }
 
   // form error handling
-  .message {
-    width: 100%;
-  }
+  .error {
+    color: $tertiary;
 
-  .has-error {
-    .form_item-input {
+    &.form_item-input {
       border-color: $tertiary;
     }
   }
 
-  .error {
-    color: $tertiary;
-    font-size: 12px;
-    margin: 3px 0 0;
+  span.error {
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+    font-size: 11px;
   }
 }

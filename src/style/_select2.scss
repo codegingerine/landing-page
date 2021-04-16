@@ -97,16 +97,15 @@
   }
 }
 
-
-// form error handling 
-.has-error {
-  .select2-container--default .select2-selection--single {
+// form error handling
+.error {
+  & ~ .select2-container--default .select2-selection--single {
     border-color: $tertiary;
   }
 }
 
-.has-success {
-  .select2-container--default .select2-selection--single {
+.success {
+  & ~ .select2-container--default .select2-selection--single {
     border-color: $border;
   }
 }

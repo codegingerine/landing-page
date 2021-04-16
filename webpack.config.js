@@ -72,6 +72,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({ template: "./src/index.html" }),
     require("autoprefixer"),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+    }),
   ],
   performance: {
     hints: false,
