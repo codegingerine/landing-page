@@ -1,6 +1,4 @@
-const validate = require("jquery-validation");
 import $ from "jquery";
-require("select2");
 
 $(() => {
   const $select = $(".js-select").select2();
