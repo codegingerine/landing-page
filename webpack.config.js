@@ -39,6 +39,15 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader", "postcss-loader"],
       },
       {
+        test: /\.hbs$/,
+        use: [
+          {
+            loader: "handlebars-loader",
+            query: { inlineRequires: "/assets/" },
+          },
+        ],
+      },
+      {
         test: /\.(png|svg|jpg)$/i,
         use: [
           {
@@ -47,30 +56,27 @@ module.exports = {
               name: "[name].[ext]",
               outputPath: "images/",
               publicPath: "images/",
+              esModule: false,
             },
           },
         ],
       },
       {
         test: /\.html$/,
-        use: [
-          "html-loader",
-          {
-            loader: "posthtml-loader",
-            options: {
-              plugins: [
-                require("posthtml-include")({
-                  root: path.resolve(__dirname, "src/partials"),
-                }),
-              ],
-            },
-          },
-        ],
+        loader: "html-loader",
+        options: {
+          interpolate: true,
+        },
       },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new HtmlWebpackPlugin({ template: "./src/index.hbs" }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        handlebarsLoader: {},
+      },
+    }),
     require("autoprefixer"),
     new webpack.ProvidePlugin({
       $: "jquery",
