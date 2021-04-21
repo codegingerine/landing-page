@@ -9,7 +9,7 @@ module.exports = {
     filename: "main.js",
   },
   devServer: {
-    contentBase: "./docs",
+    contentBase: path.resolve(__dirname, "docs"),
     historyApiFallback: true,
   },
   watch: true,
@@ -43,7 +43,10 @@ module.exports = {
         use: [
           {
             loader: "handlebars-loader",
-            query: { inlineRequires: "/assets/" },
+            options: {
+              inlineRequires: "/assets/",
+              partialDirs: path.resolve(__dirname, "src", "partials"),
+            },
           },
         ],
       },
@@ -71,7 +74,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: "./src/index.hbs" }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.hbs",
+      templateParameters: require("./src/data.json"),
+    }),
     new webpack.LoaderOptionsPlugin({
       options: {
         handlebarsLoader: {},
