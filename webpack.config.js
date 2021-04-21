@@ -9,7 +9,7 @@ module.exports = {
     filename: "main.js",
   },
   devServer: {
-    contentBase: "./docs",
+    contentBase: path.resolve(__dirname, "docs"),
     historyApiFallback: true,
   },
   watch: true,
@@ -32,11 +32,23 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader", "postcss-loader"],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader", "sass-loader", "postcss-loader"],
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.hbs$/,
+        use: [
+          {
+            loader: "handlebars-loader",
+            options: {
+              inlineRequires: "/assets/",
+              partialDirs: path.resolve(__dirname, "src", "partials"),
+            },
+          },
+        ],
       },
       {
         test: /\.(png|svg|jpg)$/i,
@@ -47,30 +59,30 @@ module.exports = {
               name: "[name].[ext]",
               outputPath: "images/",
               publicPath: "images/",
+              esModule: false,
             },
           },
         ],
       },
       {
         test: /\.html$/,
-        use: [
-          "html-loader",
-          {
-            loader: "posthtml-loader",
-            options: {
-              plugins: [
-                require("posthtml-include")({
-                  root: path.resolve(__dirname, "src/partials"),
-                }),
-              ],
-            },
-          },
-        ],
+        loader: "html-loader",
+        options: {
+          interpolate: true,
+        },
       },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.hbs",
+      templateParameters: require("./src/data.json"),
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        handlebarsLoader: {},
+      },
+    }),
     require("autoprefixer"),
     new webpack.ProvidePlugin({
       $: "jquery",
