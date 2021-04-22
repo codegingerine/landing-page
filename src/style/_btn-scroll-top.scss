@@ -1,0 +1,40 @@
+.scroll-top {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 12px;
+  width: 40px;
+  height: 40px;
+  background: $bg-mid;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    border-width: 0 7px 7px 7px;
+    border-bottom-color: $primary;
+  }
+
+  &:hover {
+    background: darken($bg-mid, 5%);
+
+    &:after {
+      border-bottom-color: lighten($primary, 25%);
+    }
+  }
+}

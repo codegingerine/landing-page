@@ -37,3 +37,26 @@ const handleCloseMobileMenu = () =>
     link.addEventListener("click", closeMobileMenu);
   });
 handleCloseMobileMenu();
+
+// scroll to top button
+const scrollToTopButton = document.getElementById("js-top");
+const rootElement = document.documentElement;
+
+const showScrollTopBtn = () => {
+  const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+
+  rootElement.scrollTop / scrollTotal > 0.1
+  ? (scrollToTopButton.classList.add("show"))
+  : (scrollToTopButton.classList.remove("show"))
+};
+
+const scrollToTop = (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
+document.addEventListener("scroll", showScrollTopBtn);
+scrollToTopButton.addEventListener("click", scrollToTop);
