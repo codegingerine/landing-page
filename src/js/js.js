@@ -1,4 +1,4 @@
-import { scrollToAnchor } from "../utils/helpers.js";
+import { scrollToAnchor, setActiveLink } from "../utils/helpers.js";
 
 const menuSrollLinks = document.querySelectorAll(
   ".menu-item--scrolling .menu-item_link"
@@ -12,6 +12,14 @@ const body = document.body;
 const toggleItemsArr = [...menuLinks, menuList, menuToggler, backdrop, body];
 const closeItemsArr = [...menuLinks, backdrop];
 
+// menu link events
+const handleMenuLinkEvents = () => {
+  scrollToAnchor(menuSrollLinks);
+  setActiveLink(menuSrollLinks, "active");
+};
+handleMenuLinkEvents();
+
+// mobile menu
 const toggleMobileMenu = () => {
   toggleItemsArr.forEach((link) => link.classList.toggle("open"));
 };
@@ -21,12 +29,6 @@ const closeMobileMenu = () => {
     (link) => link.classList.contains("open") && link.classList.remove("open")
   );
 };
-
-const handleMenuSrollLinks = () =>
-  menuSrollLinks.forEach((link) => {
-    link.addEventListener("click", scrollToAnchor);
-  });
-handleMenuSrollLinks();
 
 const handleMenuToggler = () =>
   menuToggler.addEventListener("click", toggleMobileMenu);
@@ -46,8 +48,8 @@ const showScrollTopBtn = () => {
   const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
 
   rootElement.scrollTop / scrollTotal > 0.1
-  ? (scrollToTopButton.classList.add("show"))
-  : (scrollToTopButton.classList.remove("show"))
+    ? scrollToTopButton.classList.add("show")
+    : scrollToTopButton.classList.remove("show");
 };
 
 const scrollToTop = (e) => {

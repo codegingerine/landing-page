@@ -45,7 +45,7 @@
         max-height: calc(100vh - 70px);
         background: $basic;
         padding: 15px;
-        animation: maxHeight .3s linear;
+        animation: maxHeight 0.3s linear;
         overflow-y: auto;
       }
     }
@@ -104,6 +104,14 @@
         &:hover {
           text-shadow: 0.8px 0 0 $text;
         }
+      }
+    }
+  }
+
+  &--scrolling {
+    .menu-item_link.active {
+      @include tablet-range {
+        text-shadow: 0.8px 0 0 $basic;
       }
     }
   }

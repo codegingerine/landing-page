@@ -1,16 +1,28 @@
-export const scrollToAnchor = (e) => {
-  e.preventDefault();
-  const href = e.currentTarget.getAttribute("href");
-  const offsetTop = document.querySelector(href).offsetTop;
+export const scrollToAnchor = (links) => {
+  links.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const href = link.getAttribute("href");
+      const offsetTop = document.querySelector(href).offsetTop;
 
-  scroll({
-    top: offsetTop,
-    behavior: "smooth",
+      scroll({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    });
   });
 };
 
-export const setActiveLink = (e, links, activeClassName) => {
-  e.preventDefault();
-  links.forEach((link) => link.classList.contains(activeClassName) && link.classList.remove(activeClassName));
-  e.currentTarget.classList.add(activeClassName);
+export const setActiveLink = (links, activeClassName) => {
+  links.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      links.forEach(
+        (item) =>
+          item.classList.contains(activeClassName) &&
+          item.classList.remove(activeClassName)
+      );
+      link.classList.add(activeClassName);
+    });
+  });
 };
