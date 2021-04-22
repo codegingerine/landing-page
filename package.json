@@ -35,6 +35,7 @@
   "dependencies": {
     "jquery": "^3.6.0",
     "jquery-validation": "^1.19.3",
-    "select2": "^4.1.0-rc.0"
+    "select2": "^4.1.0-rc.0",
+    "smoothscroll-polyfill": "^0.4.4"
   }
 }

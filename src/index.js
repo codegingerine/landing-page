@@ -7,6 +7,9 @@ require("select2");
 import "./js/js.js";
 import "./js/jq.js";
 
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
+
 import Handlebars from "handlebars";
 const template = document.getElementById("template").innerHTML;
 const compileTemplate = () => {

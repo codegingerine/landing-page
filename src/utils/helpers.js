@@ -26,3 +26,10 @@ export const setActiveLink = (links, activeClassName) => {
     });
   });
 };
+
+export const scrollToTop = (value) => {
+  window.scrollTo({
+    top: value,
+    behavior: "smooth",
+  });
+};

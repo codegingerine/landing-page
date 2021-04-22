@@ -1,4 +1,8 @@
-import { scrollToAnchor, setActiveLink } from "../utils/helpers.js";
+import {
+  scrollToAnchor,
+  setActiveLink,
+  scrollToTop,
+} from "../utils/helpers.js";
 
 const menuSrollLinks = document.querySelectorAll(
   ".menu-item--scrolling .menu-item_link"
@@ -52,13 +56,8 @@ const showScrollTopBtn = () => {
     : scrollToTopButton.classList.remove("show");
 };
 
-const scrollToTop = (e) => {
-  e.preventDefault();
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-};
-
 document.addEventListener("scroll", showScrollTopBtn);
-scrollToTopButton.addEventListener("click", scrollToTop);
+scrollToTopButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  scrollToTop(0);
+});
