@@ -4,6 +4,7 @@ import {
   scrollToTop,
 } from "../utils/helpers.js";
 
+const menu = document.querySelector(".menu");
 const menuSrollLinks = document.querySelectorAll(
   ".menu-item--scrolling .menu-item_link"
 );
@@ -15,6 +16,12 @@ const body = document.body;
 
 const toggleItemsArr = [...menuLinks, menuList, menuToggler, backdrop, body];
 const closeItemsArr = [...menuLinks, backdrop];
+
+// menu sticky on scroll
+document.addEventListener("scroll", () => {
+  const top = document.documentElement.scrollTop || document.body.scrollTop;
+  top > 88 ? menu.classList.add("sticky") : menu.classList.remove("sticky");
+});
 
 // menu link events
 const handleMenuLinkEvents = () => {
