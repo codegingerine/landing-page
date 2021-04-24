@@ -1,4 +1,5 @@
-export const scrollToAnchor = (links) => {
+// scroll to anchor for sticky menu
+export const scrollToAnchor = (fromTop, links) => {
   links.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -6,13 +7,28 @@ export const scrollToAnchor = (links) => {
       const offsetTop = document.querySelector(href).offsetTop;
 
       scroll({
-        top: offsetTop,
+        top: offsetTop - fromTop,
         behavior: "smooth",
       });
     });
   });
 };
 
+// set active link on scroll for sticky menu
+export const setActiveLinkOnScroll = (fromTop, links, activeClassName) => {
+  let scrollY = window.scrollY;
+
+  links.forEach((link) => {
+    let section = document.querySelector(link.hash);
+
+    scrollY > section.offsetTop - fromTop - 1 &&
+    scrollY <= section.offsetTop - fromTop - 1 + section.clientHeight
+      ? link.classList.add(activeClassName)
+      : link.classList.remove(activeClassName);
+  });
+};
+
+// set active link on click
 export const setActiveLink = (links, activeClassName) => {
   links.forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -27,6 +43,7 @@ export const setActiveLink = (links, activeClassName) => {
   });
 };
 
+// scroll to top fn
 export const scrollToTop = (value) => {
   window.scrollTo({
     top: value,

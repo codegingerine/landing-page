@@ -1,6 +1,6 @@
 import {
   scrollToAnchor,
-  setActiveLink,
+  setActiveLinkOnScroll,
   scrollToTop,
 } from "../utils/helpers.js";
 
@@ -18,6 +18,9 @@ const rootElement = document.documentElement;
 
 const toggleItemsArr = [...menuLinks, menuList, menuToggler, backdrop, body];
 const closeItemsArr = [...menuLinks, backdrop];
+
+let fromTopVal = 0;
+const mqTablet = window.matchMedia("(min-width: 768px)");
 
 // toggle mobile menu
 const toggleMobileMenu = () => {
@@ -52,10 +55,13 @@ const addStickyMenu = () => {
   top > 88 ? menu.classList.add("sticky") : menu.classList.remove("sticky");
 };
 
+// matchMedia - fromTopVal change
+const changeFromTopVal = () => mqTablet.matches ? fromTopVal = menu.clientHeight : fromTopVal = 0;
+
 // === fire menu events
 const handleMenuEvents = () => {
-  scrollToAnchor(menuSrollLinks);
-  setActiveLink(menuSrollLinks, "active");
+  changeFromTopVal();
+  scrollToAnchor(fromTopVal, menuSrollLinks);
   toggleMobileMenu();
   closeMobileMenu();
 };
@@ -64,7 +70,15 @@ handleMenuEvents();
 // === fire menu events on scroll
 document.addEventListener("scroll", () => {
   addStickyMenu();
+  setActiveLinkOnScroll(fromTopVal, menuSrollLinks, "active");
   showScrollTopBtn();
+});
+
+// === fire events on matchMedia change
+mqTablet.addEventListener("change", () => {
+  changeFromTopVal()
+  scrollToAnchor(fromTopVal, menuSrollLinks);
+  setActiveLinkOnScroll(fromTopVal, menuSrollLinks, "active");
 });
 
 // === fire scroll to top event on button click
