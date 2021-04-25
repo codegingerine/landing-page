@@ -3,8 +3,8 @@ export const scrollToAnchor = (fromTop, links) => {
   links.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      const href = link.getAttribute("href");
-      const offsetTop = document.querySelector(href).offsetTop;
+      const section = document.querySelector(link.hash);
+      const offsetTop = section.offsetTop;
 
       scroll({
         top: offsetTop - fromTop,
@@ -23,8 +23,10 @@ export const setActiveLinkOnScroll = (fromTop, links, activeClassName) => {
 
     scrollY > section.offsetTop - fromTop - 1 &&
     scrollY <= section.offsetTop - fromTop - 1 + section.clientHeight
-      ? link.classList.add(activeClassName)
-      : link.classList.remove(activeClassName);
+      ? !link.classList.contains(activeClassName) &&
+        link.classList.add(activeClassName)
+      : link.classList.contains(activeClassName) &&
+        link.classList.remove(activeClassName);
   });
 };
 
